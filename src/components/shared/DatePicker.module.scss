@@ -1,0 +1,23 @@
+.container {
+	position: relative;
+}
+
+.input {
+	&__date {
+		width: 0 !important;
+		border: none;
+		position: absolute;
+		right: 0.5rem;
+		top: 0.5rem;
+		overflow: visible;
+		outline: none;
+	}
+
+	&__icon {
+		position: absolute;
+		right: 0.5rem;
+		top: 0.5rem;
+		overflow: visible;
+		pointer-events: none;
+	}
+}
