@@ -4,11 +4,16 @@ import { useRef, useState } from "react";
 
 import styles from "./DatePicker.module.scss";
 
-function DatePicker({ className = "", value = "", onChange, placeholder = "Choose a day" }) {
-	const currentDate = new Date().toISOString().slice(0, 10);
+function DatePicker({
+	className = "",
+	value = "",
+	placeholder = "Choose a day",
+	minDate = new Date().toISOString().slice(0, 10),
+	onChange,
+}) {
 	const dateInputRef = useRef();
 
-	const [date, setDate] = useState("");
+	const [date, setDate] = useState(minDate);
 
 	function showDatePicker() {
 		dateInputRef.current.showPicker();
@@ -36,7 +41,7 @@ function DatePicker({ className = "", value = "", onChange, placeholder = "Choos
 				ref={dateInputRef}
 				value={date}
 				onChange={pickDateHandler}
-				min={currentDate}
+				min={minDate}
 			/>
 			<FontAwesomeIcon icon="fa-regular fa-calendar" className={styles.input__icon} />
 		</div>
@@ -47,6 +52,8 @@ DatePicker.propTypes = {
 	onChange: PropTypes.func,
 	className: PropTypes.string,
 	value: PropTypes.string,
+	minDate: PropTypes.string,
+	placeholder: PropTypes.string,
 };
 
 export default DatePicker;

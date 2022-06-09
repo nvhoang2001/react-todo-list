@@ -9,11 +9,11 @@ import dateFormatter from "../../utils/dateFormatter.js";
 import styles from "./FormTask.module.scss";
 
 const [, NORMAL_PRIOR] = Object.keys(priority);
-
+const today = new Date().toISOString().slice(0, 10);
 const defaultForm = {
 	title: "",
 	description: "",
-	dueDate: "",
+	dueDate: today,
 	priority: NORMAL_PRIOR,
 };
 
@@ -43,9 +43,7 @@ function FormTask({ onSubmit, task, className = "" }) {
 		if (!form.title.trim()) {
 			errors.push("Please enter title");
 		}
-		if (!form.dueDate) {
-			errors.push("Invalid due date, please choose a valid date from the calendar");
-		}
+
 		if (errors.length) {
 			setErrorMgs(errors);
 			return;
@@ -84,8 +82,9 @@ function FormTask({ onSubmit, task, className = "" }) {
 					<p className={styles.container__title}>Due date</p>
 					<DatePicker
 						className={styles.container__input}
-						value={form.dueDate ? dateFormatter(form.dueDate) : form.dueDate}
+						value={dateFormatter(form.dueDate)}
 						onChange={dueDateChangeHandler}
+						minDate={today}
 					/>
 				</div>
 
