@@ -1,0 +1,24 @@
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.error-list {
+    color: red;
+    font-size: 0.75rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}

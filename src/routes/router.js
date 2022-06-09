@@ -1,12 +1,15 @@
+import DefaultLayout from "../layouts/default";
+import Homepage from "../pages/index.jsx";
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
 	{
-		element: null,
+		element: <DefaultLayout />,
 		path: "/",
 		children: [
 			{
 				name: "Homepage",
-				element: null,
+				element: <Homepage />,
 				index: true,
 			},
 		],

@@ -1,0 +1,66 @@
+%button {
+	color: white;
+	padding: 0.5rem 1.5rem;
+	border: none;
+	cursor: pointer;
+	font-size: 1rem;
+	border-radius: 0.25rem;
+}
+
+.homepage {
+	&__header {
+		margin-bottom: 2.5rem;
+		font-size: 1rem;
+		text-align: center;
+	}
+}
+
+.footer {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 70%;
+	padding: 1rem 1.5rem;
+
+	&__btn {
+		&--done {
+			@extend %button;
+			background-color: #367bfc;
+			padding: 0.5rem 2.5rem;
+			margin-right: 1.5rem;
+
+			&:hover {
+				background-color: #045afb;
+			}
+		}
+
+		&--remove {
+			@extend %button;
+			background-color: #df0000;
+			&:hover {
+				background-color: #cc0000;
+			}
+		}
+	}
+}
+
+@media (max-width: 1150px) {
+	.footer {
+		width: 100%;
+	}
+}
+
+@media (max-width: 480px) {
+	.footer {
+		&__btn {
+			&--done {
+				padding: 0.5rem 2rem;
+				margin-right: 1rem;
+			}
+		}
+	}
+}
